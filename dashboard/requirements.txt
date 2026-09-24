@@ -1,0 +1,5 @@
+﻿streamlit==1.50.0
+pandas>=2.2,<3
+psycopg2==2.9.12
+python-dotenv==1.1.1
+

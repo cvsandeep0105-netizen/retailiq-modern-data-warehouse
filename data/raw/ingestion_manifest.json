@@ -1,0 +1,90 @@
+{
+  "project": "RetailIQ",
+  "layer": "raw",
+  "ingestion_type": "source-preserving-copy",
+  "ingested_at_utc": "2026-09-24T05:53:02.712524+00:00",
+  "source_file_count": 9,
+  "records": [
+    {
+      "source_filename": "olist_customers_dataset.csv",
+      "raw_filename": "olist_customers_dataset.csv",
+      "source_size_bytes": 9033957,
+      "raw_size_bytes": 9033957,
+      "source_sha256": "983a422239e1712ded753b3bf9ecf47dc73f144d306029dcfa99e70a226883d2",
+      "raw_sha256": "983a422239e1712ded753b3bf9ecf47dc73f144d306029dcfa99e70a226883d2",
+      "row_count": 99441
+    },
+    {
+      "source_filename": "olist_geolocation_dataset.csv",
+      "raw_filename": "olist_geolocation_dataset.csv",
+      "source_size_bytes": 61273883,
+      "raw_size_bytes": 61273883,
+      "source_sha256": "b514f6fc991b9566aeba02aa5d67e2c3630f034b60a0e05aa0d082a3b66d88d6",
+      "raw_sha256": "b514f6fc991b9566aeba02aa5d67e2c3630f034b60a0e05aa0d082a3b66d88d6",
+      "row_count": 1000163
+    },
+    {
+      "source_filename": "olist_orders_dataset.csv",
+      "raw_filename": "olist_orders_dataset.csv",
+      "source_size_bytes": 17654914,
+      "raw_size_bytes": 17654914,
+      "source_sha256": "8df58ef3d2d7e9944010f7beecd9b75367f5588ec6e3c91cec19ae3345ef9ecf",
+      "raw_sha256": "8df58ef3d2d7e9944010f7beecd9b75367f5588ec6e3c91cec19ae3345ef9ecf",
+      "row_count": 99441
+    },
+    {
+      "source_filename": "olist_order_items_dataset.csv",
+      "raw_filename": "olist_order_items_dataset.csv",
+      "source_size_bytes": 15438671,
+      "raw_size_bytes": 15438671,
+      "source_sha256": "0bc4d068c4fe38cbb01bd90e8746e3c613fe7b4baef75fab7b0e329701c3e279",
+      "raw_sha256": "0bc4d068c4fe38cbb01bd90e8746e3c613fe7b4baef75fab7b0e329701c3e279",
+      "row_count": 112650
+    },
+    {
+      "source_filename": "olist_order_payments_dataset.csv",
+      "raw_filename": "olist_order_payments_dataset.csv",
+      "source_size_bytes": 5777138,
+      "raw_size_bytes": 5777138,
+      "source_sha256": "4f713964f2815dbbaa40b9488268c55aac3627bfce5aa96cf58d1f3616de3cc0",
+      "raw_sha256": "4f713964f2815dbbaa40b9488268c55aac3627bfce5aa96cf58d1f3616de3cc0",
+      "row_count": 103886
+    },
+    {
+      "source_filename": "olist_order_reviews_dataset.csv",
+      "raw_filename": "olist_order_reviews_dataset.csv",
+      "source_size_bytes": 14451670,
+      "raw_size_bytes": 14451670,
+      "source_sha256": "012b61c7593e34f51fa614efdf802b9c7056ce6aae5307ddb93236e7cfc797d7",
+      "raw_sha256": "012b61c7593e34f51fa614efdf802b9c7056ce6aae5307ddb93236e7cfc797d7",
+      "row_count": 99224
+    },
+    {
+      "source_filename": "olist_products_dataset.csv",
+      "raw_filename": "olist_products_dataset.csv",
+      "source_size_bytes": 2379446,
+      "raw_size_bytes": 2379446,
+      "source_sha256": "3e6569628a17fbc75fd206ee357b59e20364b9afa90f5b6cd5b4d624c58aa9cc",
+      "raw_sha256": "3e6569628a17fbc75fd206ee357b59e20364b9afa90f5b6cd5b4d624c58aa9cc",
+      "row_count": 32951
+    },
+    {
+      "source_filename": "olist_sellers_dataset.csv",
+      "raw_filename": "olist_sellers_dataset.csv",
+      "source_size_bytes": 174703,
+      "raw_size_bytes": 174703,
+      "source_sha256": "1f643d2b950373b85735e7794b20986f528d7a000432e7c6f9bcbb44d0846a0e",
+      "raw_sha256": "1f643d2b950373b85735e7794b20986f528d7a000432e7c6f9bcbb44d0846a0e",
+      "row_count": 3095
+    },
+    {
+      "source_filename": "product_category_name_translation.csv",
+      "raw_filename": "product_category_name_translation.csv",
+      "source_size_bytes": 2613,
+      "raw_size_bytes": 2613,
+      "source_sha256": "a81f0d1f27b27e7293f761bc79e3ce8f348ee39c4b3ed3e49bde38f478586278",
+      "raw_sha256": "a81f0d1f27b27e7293f761bc79e3ce8f348ee39c4b3ed3e49bde38f478586278",
+      "row_count": 71
+    }
+  ]
+}

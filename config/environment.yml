@@ -1,0 +1,17 @@
+﻿project:
+  name: retailiq
+  environment: local
+  source_system: olist
+
+paths:
+  source: data/source/olist
+  raw: data/raw
+  staging: data/staging
+  intermediate: data/intermediate
+  warehouse: data/warehouse
+  marts: data/marts
+  logs: logs
+
+warehouse:
+  logical_engine: postgresql
+  local_runtime: docker

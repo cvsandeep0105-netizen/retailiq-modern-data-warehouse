@@ -1,0 +1,36 @@
+﻿# Project 03 - RetailIQ
+
+.venv/
+venv/
+env/
+__pycache__/
+*.pyc
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.log
+.env
+.env.*
+!.env.example
+.DS_Store
+Thumbs.db
+*.tmp
+*.bak
+coverage.xml
+htmlcov/
+dist/
+build/
+*.egg-info/
+node_modules/
+target/
+data/processed/
+data/intermediate/
+data/output/
+!data/source/
+
+
+# Source/raw data must remain local
+data/source/olist/*.csv
+data/raw/*.csv
+# Temporary dashboard backups
+dashboard/app/*-backup.py
