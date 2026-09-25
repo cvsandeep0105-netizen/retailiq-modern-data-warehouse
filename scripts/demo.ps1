@@ -46,3 +46,8 @@ Write-Host " Cloud production deployment: NOT CLAIMED"
 Write-Host "============================================="
 
 
+
+Write-Host ""
+Write-Host "[8/8] Dashboard" -ForegroundColor Cyan
+$dashboardLauncher=(Resolve-Path ".\scripts\dashboard-launch.ps1").Path
+& powershell.exe -NoProfile -ExecutionPolicy Bypass -File $dashboardLauncher
