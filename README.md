@@ -185,16 +185,10 @@ INTEGRATION TESTING: PASS
 E2E VALIDATION: PASS
 DASHBOARD: PASS
 CLOUD PRODUCTION DEPLOYMENT: NOT CLAIMED
-GITHUB PUBLICATION: IN PROGRESS
+GITHUB PUBLICATION: PUBLISHED
 ENGINEERING REPORT: PENDING
 PORTFOLIO INTEGRATION: PENDING
 `
-
-## Portfolio Projects
-
-- Project 01 — Enterprise AI-Powered Real-Time EV Fleet Data Platform
-- Project 02 — Cloud-Native Lakehouse, CDC & AI-Ready Data Platform
-- Project 03 — RetailIQ Modern Data Warehouse & Analytics Engineering Platform
 
 ## Source Data Notice
 
