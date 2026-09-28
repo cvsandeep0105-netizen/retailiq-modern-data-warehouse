@@ -1,4 +1,4 @@
-# RetailIQ — Modern Data Warehouse & Analytics Engineering Platform
+﻿# RetailIQ — Modern Data Warehouse & Analytics Engineering Platform
 
 ## Project 03 — Production-Style Modern Data Warehouse + Analytics Engineering Platform
 
@@ -27,7 +27,7 @@ RetailIQ is an end-to-end modern data warehouse and analytics engineering platfo
 
 ## Architecture
 
-`	ext
+```text
 Olist Source Data
       |
       v
@@ -53,7 +53,7 @@ BI-READY DATA PRODUCTS
       |
       v
 RETAILIQ STREAMLIT DASHBOARD
-`
+```
 
 ## Validated Source Data
 
@@ -82,10 +82,10 @@ Original source CSV files are intentionally excluded from this repository.
 
 ### Facts
 
-- act_orders
-- act_order_items
-- act_payments
-- act_reviews
+- fact_orders
+- fact_order_items
+- fact_payments
+- fact_reviews
 
 ## Business Data Marts
 
@@ -116,14 +116,14 @@ Original source CSV files are intentionally excluded from this repository.
 
 ## Data Quality
 
-`	ext
+```text
 DATA_QUALITY_CHECKS=34
 DATA_QUALITY_FAILURES=0
-`
+```
 
 ## Validation Evidence
 
-`	ext
+```text
 CI_STATUS=PASS
 E2E_STATUS=PASS
 SCALABILITY_FAILURES=0
@@ -134,7 +134,7 @@ PERFORMANCE_MAX_MS=6057.035
 SCALABILITY_EXECUTIONS=15
 SCALABILITY_FAILURES=0
 SCALABILITY_QPS=1.27
-`
+```
 
 ## RetailIQ Dashboard
 
@@ -149,9 +149,9 @@ The Streamlit BI product contains six pages:
 
 Run the complete demonstration:
 
-`powershell
+```powershell
 .\\scripts\\demo.ps1
-`
+```
 
 The demonstration validates the platform and automatically launches the dashboard.
 
@@ -177,7 +177,7 @@ Python, SQL, PostgreSQL, Pandas, SQLAlchemy, psycopg2, Pytest, Streamlit, Git, G
 
 ## Project Status
 
-`	ext
+```text
 AREAS 01-50: FROZEN
 LOCAL VALIDATION: PASS
 DATA QUALITY: PASS
@@ -186,9 +186,9 @@ E2E VALIDATION: PASS
 DASHBOARD: PASS
 CLOUD PRODUCTION DEPLOYMENT: NOT CLAIMED
 GITHUB PUBLICATION: PUBLISHED
-ENGINEERING REPORT: PENDING
-PORTFOLIO INTEGRATION: PENDING
-`
+ENGINEERING REPORT: COMPLETE
+PORTFOLIO INTEGRATION: COMPLETE
+```
 
 ## Source Data Notice
 
@@ -203,8 +203,9 @@ The original Olist dataset remains subject to its published source license. Orig
 
 ## Author
 
-**Sandeep Reddy**
+**Venkata Sandeep Kumar Reddy**
 
 Data Engineer | Modern Data Warehousing | Analytics Engineering
 
 GitHub: https://github.com/cvsandeep0105-netizen
+
