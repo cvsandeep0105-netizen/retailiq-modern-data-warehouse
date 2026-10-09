@@ -61,7 +61,7 @@ Validated evidence after the change:
 
 Repeated incremental runs reported `INSERT 0 2`. The resulting table retained 634 rows and 634 distinct date keys. The complete build subsequently executed the incremental model and passed its unique-date test.
 
-This validates row-count stability and key uniqueness. A complete metric-by-metric comparison against a full-refresh result has not yet been documented as a separate test.
+This validates row-count stability and key uniqueness. A separate read-only full-source reconciliation has subsequently compared all 634 date groups and the documented daily metrics, with zero missing or extra date groups and zero metric mismatches for the tested source snapshot. This evidence is recorded in the RetailIQ incremental full-source reconciliation section below.
 
 ### Cross-layer reconciliation
 
@@ -132,7 +132,7 @@ After replacing the previous append-based implementation:
 
 This confirms the observed duplicate-key defect is resolved for the tested dataset and execution sequence.
 
-The seven-day lookback supports reprocessing within that window. Changes older than the configured window require a separate backfill or full-refresh procedure. Metric-level equivalence between incremental and full-refresh results remains a distinct validation task.
+The seven-day lookback supports reprocessing within that window. Changes older than the configured window require a controlled backfill or full-refresh procedure. A separate read-only full-source reconciliation has verified equivalence for the tested source snapshot and documented metrics; see the reconciliation evidence section below. This does not establish automatic detection of all future late-arriving changes.
 ## 6. SCD Type 2 Reliability
 
 Customer history is maintained through a dbt snapshot.
@@ -261,3 +261,50 @@ The current implementation demonstrates the engineering patterns locally using P
 Cloud monitoring, production alerting and managed orchestration are architectural targets unless separately implemented and validated.
 
 No production monitoring capability is claimed without implementation evidence.
+
+## RetailIQ incremental full-source reconciliation evidence
+
+### Verified current-dataset reconciliation
+
+A separate read-only reconciliation query compared the daily incremental model against an independently aggregated reference derived from the full `fact_orders` source and `dim_date`.
+
+Recorded results:
+
+- Compared date groups: **634**
+- Missing or extra date groups: **0**
+- Date groups with metric mismatches: **0**
+- Total-orders mismatches: **0**
+- Delivered-orders mismatches: **0**
+- Canceled-orders mismatches: **0**
+- Shipped-orders mismatches: **0**
+- Processing-orders mismatches: **0**
+- On-time-orders mismatches: **0**
+- Late-orders mismatches: **0**
+- Average delivery-duration mismatches: **0**
+- Average estimated-delivery-difference mismatches: **0**
+- Reference total orders: **99,441**
+- Incremental total orders: **99,441**
+
+The reconciliation ran in a read-only transaction. These results establish equivalence for the tested source snapshot and listed metrics; they do not prove that every possible future late-arriving change is automatically detected.
+
+### Historical corrections and controlled recovery
+
+The current model uses a seven-day rolling processing window with `delete+insert` keyed by `date_sk`. This handles changes within the reprocessed date range, but it does not guarantee that corrections to older dates outside that window will be picked up during an ordinary incremental run.
+
+For a historical correction outside the rolling window, use a controlled development recovery:
+
+1. Confirm the intended dbt project, target, profile, and environment.
+2. Inspect the selected dependency graph before execution:
+   `dbt ls --select fct_daily_order_metrics+`
+3. Review the compiled project and target impact. Confirm that the selected daily model and its downstream dependent models are the intended relations.
+4. Preserve the current results and relevant evidence before rebuilding.
+5. In the development target only, rebuild the selected model and downstream dependencies with:
+   `dbt run --full-refresh --select fct_daily_order_metrics+`
+6. Run the relevant model tests:
+   `dbt test --select fct_daily_order_metrics+`
+7. Repeat the independent source-to-incremental reconciliation and confirm date-group coverage, metric equality, and the expected total.
+8. Record the command outcome, test results, reconciliation results, environment, and date of execution.
+
+**Safety boundary:** `--full-refresh` rebuilds the selected incremental model instead of applying its normal incremental filter. Inspect the selection and target before running it. Do not run this procedure against a production target without explicit authorization, a reviewed recovery plan, and appropriate preservation or rollback arrangements. The command does not rebuild the upstream source tables themselves.
+
+The current-source reconciliation is verified evidence. This section describes the controlled recovery procedure; it does not claim that a separate historical late-arriving correction incident has been simulated and passed.
