@@ -1,0 +1,52 @@
+version: 2
+
+models:
+  - name: mart_customer_360
+    columns:
+      - name: customer_sk
+        tests:
+          - not_null
+          - unique
+      - name: customer_id
+        tests:
+          - not_null
+      - name: total_orders
+        tests:
+          - not_null
+
+  - name: mart_product_performance
+    columns:
+      - name: product_sk
+        tests:
+          - not_null
+          - unique
+      - name: product_id
+        tests:
+          - not_null
+
+  - name: mart_seller_performance
+    columns:
+      - name: seller_sk
+        tests:
+          - not_null
+          - unique
+      - name: seller_id
+        tests:
+          - not_null
+
+  - name: mart_daily_sales
+    columns:
+      - name: date_sk
+        tests:
+          - not_null
+          - unique
+      - name: total_orders
+        tests:
+          - not_null
+
+  - name: mart_review_performance
+    columns:
+      - name: review_score
+        tests:
+          - not_null
+          - unique

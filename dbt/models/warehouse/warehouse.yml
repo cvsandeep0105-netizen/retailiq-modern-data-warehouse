@@ -1,0 +1,228 @@
+version: 2
+
+models:
+  - name: dim_customer
+    description: "Customer dimension for the RetailIQ analytics warehouse."
+
+    columns:
+      - name: customer_sk
+        description: "Deterministic surrogate key generated from customer_id ordering."
+        tests:
+          - not_null
+          - unique
+
+      - name: customer_id
+        description: "Source customer identifier."
+        tests:
+          - not_null
+          - unique
+
+      - name: customer_unique_id
+        description: "Customer-level identifier shared across customer records."
+
+      - name: record_source
+        description: "Source system identifier."
+        tests:
+          - not_null
+
+      - name: created_at
+        description: "dbt model execution timestamp."
+        tests:
+          - not_null
+
+  - name: dim_product
+    description: "dbt analytics-engineering product dimension."
+    columns:
+      - name: product_sk
+        tests:
+          - not_null
+          - unique
+      - name: product_id
+        tests:
+          - not_null
+          - unique
+      - name: record_source
+        tests:
+          - not_null
+      - name: created_at
+        tests:
+          - not_null
+
+  - name: dim_seller
+    description: "Seller dimension for the RetailIQ analytics warehouse."
+    columns:
+      - name: seller_sk
+        description: "Deterministic surrogate key generated from seller_id ordering."
+        tests:
+          - not_null
+          - unique
+      - name: seller_id
+        description: "Source seller identifier."
+        tests:
+          - not_null
+          - unique
+      - name: record_source
+        description: "Source system identifier."
+        tests:
+          - not_null
+      - name: created_at
+        description: "dbt model execution timestamp."
+        tests:
+          - not_null
+
+  - name: dim_date
+    description: "Calendar dimension for the RetailIQ analytics warehouse."
+    columns:
+      - name: date_sk
+        description: "Deterministic YYYYMMDD date key."
+        tests:
+          - not_null
+          - unique
+      - name: calendar_date
+        description: "Calendar date."
+        tests:
+          - not_null
+          - unique
+      - name: calendar_year
+        tests:
+          - not_null
+      - name: calendar_quarter
+        tests:
+          - not_null
+      - name: calendar_month
+        tests:
+          - not_null
+      - name: month_name
+        tests:
+          - not_null
+      - name: calendar_week
+        tests:
+          - not_null
+      - name: day_of_month
+        tests:
+          - not_null
+      - name: day_of_week
+        tests:
+          - not_null
+      - name: day_name
+        tests:
+          - not_null
+      - name: is_weekend
+        tests:
+          - not_null
+  - name: fact_order_items
+    columns:
+      - name: order_item_sk
+        tests:
+          - not_null
+          - unique
+
+      - name: order_id
+        tests:
+          - not_null
+
+      - name: order_item_id
+        tests:
+          - not_null
+
+      - name: customer_sk
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_customer')
+                field: customer_sk
+
+      - name: product_sk
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_product')
+                field: product_sk
+
+      - name: seller_sk
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_seller')
+                field: seller_sk
+
+      - name: order_date_sk
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_date')
+                field: date_sk
+
+      - name: item_price
+        tests:
+          - not_null
+
+      - name: freight_value
+        tests:
+          - not_null
+
+      - name: total_item_value
+        tests:
+          - not_null
+
+      - name: record_source
+        tests:
+          - not_null
+
+      - name: created_at
+        tests:
+          - not_null
+  - name: fact_payments
+    columns:
+      - name: payment_sk
+        tests:
+          - not_null
+          - unique
+
+      - name: order_id
+        tests:
+          - not_null
+
+      - name: payment_sequential
+        tests:
+          - not_null
+
+      - name: customer_sk
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_customer')
+                field: customer_sk
+
+      - name: payment_type
+        tests:
+          - not_null
+
+      - name: payment_installments
+        tests:
+          - not_null
+
+      - name: payment_value
+        tests:
+          - not_null
+
+      - name: payment_date_sk
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_date')
+                field: date_sk
+
+      - name: record_source
+        tests:
+          - not_null
+
+      - name: created_at
+        tests:
+          - not_null

@@ -1,0 +1,38 @@
+version: 2
+
+models:
+  - name: stg_products
+    columns:
+      - name: product_id
+        tests:
+          - not_null
+          - unique
+
+  - name: stg_sellers
+    columns:
+      - name: seller_id
+        tests:
+          - not_null
+          - unique
+
+  - name: stg_geolocation
+    columns:
+      - name: geolocation_zip_code_prefix
+        tests:
+          - not_null
+      - name: geolocation_lat
+        tests:
+          - not_null
+      - name: geolocation_lng
+        tests:
+          - not_null
+
+  - name: stg_product_category_name_translation
+    columns:
+      - name: product_category_name
+        tests:
+          - not_null
+          - unique
+      - name: product_category_name_english
+        tests:
+          - not_null

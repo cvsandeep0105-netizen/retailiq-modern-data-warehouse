@@ -1,0 +1,21 @@
+version: 2
+
+models:
+  - name: stg_order_reviews
+    description: "Cleaned review staging model built from the Olist raw review source."
+
+    columns:
+      - name: review_id
+        description: "Unique identifier for a review."
+        data_tests:
+          - not_null
+
+      - name: order_id
+        description: "Order associated with the review."
+        data_tests:
+          - not_null
+
+      - name: review_score
+        description: "Customer review score."
+        data_tests:
+          - not_null

@@ -1,0 +1,35 @@
+version: 2
+
+sources:
+  - name: olist_raw
+    description: "RetailIQ Olist raw operational data loaded into PostgreSQL."
+    schema: raw
+    database: retailiq
+
+    tables:
+      - name: olist_customers
+        description: "Customer-level raw records."
+
+      - name: olist_geolocation
+        description: "Geographic reference data by postal-code prefix."
+
+      - name: olist_order_items
+        description: "Item-level records associated with customer orders."
+
+      - name: olist_order_payments
+        description: "Payment records associated with customer orders."
+
+      - name: olist_order_reviews
+        description: "Customer review records associated with orders."
+
+      - name: olist_orders
+        description: "Order-level lifecycle and timestamp records."
+
+      - name: olist_products
+        description: "Product-level raw attributes."
+
+      - name: olist_sellers
+        description: "Seller-level raw attributes."
+
+      - name: product_category_name_translation
+        description: "Product-category translation reference data."

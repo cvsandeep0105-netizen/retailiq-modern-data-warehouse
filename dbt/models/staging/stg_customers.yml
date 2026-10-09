@@ -1,0 +1,26 @@
+version: 2
+
+models:
+  - name: stg_customers
+    description: "Cleaned customer staging model built from the Olist raw customer source."
+
+    columns:
+      - name: customer_id
+        description: "Unique identifier for an Olist customer record."
+        data_tests:
+          - not_null
+          - unique
+
+      - name: customer_unique_id
+        description: "Stable customer identifier across customer records."
+        data_tests:
+          - not_null
+
+      - name: customer_zip_code_prefix
+        description: "Customer postal-code prefix."
+
+      - name: customer_city
+        description: "Customer city."
+
+      - name: customer_state
+        description: "Customer state."

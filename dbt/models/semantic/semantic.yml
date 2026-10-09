@@ -1,0 +1,48 @@
+version: 2
+
+models:
+  - name: semantic_kpis
+    description: "Executive-level RetailIQ business KPIs."
+    columns:
+      - name: total_orders
+        tests:
+          - not_null
+      - name: delivery_rate_pct
+        tests:
+          - not_null
+      - name: on_time_rate_pct
+        tests:
+          - not_null
+      - name: late_rate_pct
+        tests:
+          - not_null
+
+  - name: semantic_customer_segments
+    description: "Customer segmentation and business metrics layer."
+    columns:
+      - name: customer_sk
+        tests:
+          - not_null
+          - unique
+      - name: customer_order_segment
+        tests:
+          - not_null
+
+  - name: semantic_product_categories
+    description: "Category-level product and revenue metrics."
+    columns:
+      - name: product_category_name_english
+      - name: total_items_sold
+        tests:
+          - not_null
+
+  - name: semantic_seller_rankings
+    description: "Seller performance and revenue ranking layer."
+    columns:
+      - name: seller_sk
+        tests:
+          - not_null
+          - unique
+      - name: seller_revenue_rank
+        tests:
+          - not_null

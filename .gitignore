@@ -34,3 +34,10 @@ data/source/olist/*.csv
 data/raw/*.csv
 # Temporary dashboard backups
 dashboard/app/*-backup.py
+.dbt-venv/
+dbt/.dbt-venv/
+data/staging/
+dbt/target/
+dbt/logs/
+dbt/**/*.backup
+dbt/**/*.pre-incremental-fix

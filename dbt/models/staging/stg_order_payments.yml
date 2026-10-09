@@ -1,0 +1,31 @@
+version: 2
+
+models:
+  - name: stg_order_payments
+    description: "Cleaned payment staging model built from the Olist raw payment source."
+
+    columns:
+      - name: order_id
+        description: "Order associated with the payment."
+        data_tests:
+          - not_null
+
+      - name: payment_sequential
+        description: "Sequential payment number within an order."
+        data_tests:
+          - not_null
+
+      - name: payment_type
+        description: "Payment method used for the order."
+        data_tests:
+          - not_null
+
+      - name: payment_installments
+        description: "Number of payment installments."
+        data_tests:
+          - not_null
+
+      - name: payment_value
+        description: "Payment amount."
+        data_tests:
+          - not_null

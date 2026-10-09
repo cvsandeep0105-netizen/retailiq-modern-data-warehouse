@@ -1,0 +1,40 @@
+version: 2
+
+models:
+  - name: fct_daily_order_metrics
+    description: "Incremental daily order-performance metrics for RetailIQ."
+
+    columns:
+      - name: date_sk
+        description: "Date dimension surrogate key and model grain."
+        tests:
+          - not_null
+          - unique
+
+      - name: total_orders
+        tests:
+          - not_null
+
+      - name: delivered_orders
+        tests:
+          - not_null
+
+      - name: canceled_orders
+        tests:
+          - not_null
+
+      - name: shipped_orders
+        tests:
+          - not_null
+
+      - name: processing_orders
+        tests:
+          - not_null
+
+      - name: on_time_orders
+        tests:
+          - not_null
+
+      - name: late_orders
+        tests:
+          - not_null
