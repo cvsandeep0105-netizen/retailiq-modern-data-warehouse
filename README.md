@@ -1,4 +1,4 @@
-﻿# RetailIQ — Modern Data Warehouse & Analytics Engineering Platform
+# RetailIQ — Modern Data Warehouse & Analytics Engineering Platform
 
 ## Project 03 — Production-Style Modern Data Warehouse + Analytics Engineering Platform
 
@@ -178,7 +178,7 @@ Python, SQL, PostgreSQL, Pandas, SQLAlchemy, psycopg2, Pytest, Streamlit, Git, G
 ## Project Status
 
 ```text
-AREAS 01-50: FROZEN
+AREAS 01-30: FROZEN
 LOCAL VALIDATION: PASS
 DATA QUALITY: PASS
 INTEGRATION TESTING: PASS
@@ -208,4 +208,3 @@ The original Olist dataset remains subject to its published source license. Orig
 Data Engineer | Modern Data Warehousing | Analytics Engineering
 
 GitHub: https://github.com/cvsandeep0105-netizen
-
