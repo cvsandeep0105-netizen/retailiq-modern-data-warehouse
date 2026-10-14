@@ -32,6 +32,24 @@ jobs:
           python -m pip install --upgrade pip
           pip install "dbt-core==1.12.5" "dbt-postgres==1.11.0"
 
+      - name: Configure dbt profile
+        shell: bash
+        run: |
+          mkdir -p "$HOME/.dbt"
+          cat > "$HOME/.dbt/profiles.yml" <<'EOF'
+          retailiq_dbt:
+            target: ci
+            outputs:
+              ci:
+                type: postgres
+                host: "{{ env_var('POSTGRES_HOST') }}"
+                port: "{{ env_var('POSTGRES_PORT') | int }}"
+                dbname: "{{ env_var('POSTGRES_DB') }}"
+                user: "{{ env_var('POSTGRES_USER') }}"
+                password: "{{ env_var('POSTGRES_PASSWORD') }}"
+                schema: public
+                threads: 4
+          EOF
       - name: Validate dbt project parsing
         env:
           POSTGRES_HOST: localhost
